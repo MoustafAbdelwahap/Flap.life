@@ -4,12 +4,16 @@ from transformers import BertForSequenceClassification, BertTokenizer
 
 print('started running the file')
 # Load trained model
-loaded_model_path = "/saved_model_directory"  # Replace with the actual path
-model = BertForSequenceClassification.from_pretrained(loaded_model_path)
+
+base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
+# Set the path to the model directory within the GitHub repository
+model_dir = os.path.join(base_path, "saved_model_directory")
+
+model = BertForSequenceClassification.from_pretrained(model_dir)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-loaded_tokenizer_path = "/saved_token_directory"  # Replace with the actual path
+loaded_tokenizer_path = os.path.join(base_path, "saved_token_directory") 
 tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
 
 st.title("FLAP Dashboard (DEMO)")
