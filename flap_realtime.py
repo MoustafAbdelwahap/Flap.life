@@ -1,6 +1,7 @@
 import torch
 import streamlit as st
 from transformers import BertForSequenceClassification, BertTokenizer
+import os
 
 print('started running the file')
 # Load trained model
