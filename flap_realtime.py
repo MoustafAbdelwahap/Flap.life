@@ -2,6 +2,7 @@ import torch
 import streamlit as st
 from transformers import BertForSequenceClassification, BertTokenizer
 
+print('started running the file')
 # Load trained model
 loaded_model_path = "/saved_model_directory"  # Replace with the actual path
 model = BertForSequenceClassification.from_pretrained(loaded_model_path)
