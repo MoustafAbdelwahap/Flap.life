@@ -2,6 +2,9 @@ import torch
 import streamlit as st
 from transformers import BertForSequenceClassification, BertTokenizer
 import os
+import logging
+# Configure logging
+logging.basicConfig(level=logging.DEBUG)
 
 print('started running the file')
 # Load trained model
@@ -10,6 +13,7 @@ base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script i
 # Set the path to the model directory within the GitHub repository
 #model_dir = os.path.join(base_path, "Flap.life/saved_model_directory")
 path1="Flap.life/saved_model_directory"
+logging.debug("Model directory path: %s", path1)
 
 model = BertForSequenceClassification.from_pretrained(path1)
 model.eval()
