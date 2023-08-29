@@ -9,19 +9,28 @@ logging.basicConfig(level=logging.DEBUG)
 print('started running the file')
 # Load trained model
 
+# Clone the repository
+repo_url = "https://github.com/Moustafa_Abdelwahap/Flap.life.git"
+repo_dir = "repo"  # Temporary directory to clone the repository
+if not os.path.exists(repo_dir):
+    git.Repo.clone_from(repo_url, repo_dir)
+
+
+
+
 base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
 # Set the path to the model directory within the GitHub repository
-#model_dir = os.path.join(base_path, "Flap.life/saved_model_directory")
-path1="Flap.life/saved_model_directory"
-logging.debug("Model directory path: %s", path1)
+model_dir = os.path.join(repo_dir, "/saved_model_directory")
+#path1="Flap.life/saved_model_directory"
+logging.debug("Model directory path: %s", model_dir)
 
-model = BertForSequenceClassification.from_pretrained(path1)
+model = BertForSequenceClassification.from_pretrained(model_dir)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-path2="Flap.life/saved_token_directory"
-#loaded_tokenizer_path = os.path.join(base_path, "Flap.life/saved_token_directory") 
-tokenizer = BertTokenizer.from_pretrained(path2)
+#path2="Flap.life/saved_token_directory"
+loaded_tokenizer_path = os.path.join(repo_dir, "/saved_token_directory") 
+tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
 
 st.title("FLAP Dashboard (DEMO)")
 st.write("Enter your essay/personal statement, and we will evaluate it.")
