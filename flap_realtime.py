@@ -3,12 +3,12 @@ import streamlit as st
 from transformers import BertForSequenceClassification, BertTokenizer
 
 # Load trained model
-loaded_model_path = "/home/moustafa/Downloads/saved_model_directory"  # Replace with the actual path
+loaded_model_path = "/saved_model_directory"  # Replace with the actual path
 model = BertForSequenceClassification.from_pretrained(loaded_model_path)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-loaded_tokenizer_path = "/home/moustafa/Downloads/saved_token_directory"  # Replace with the actual path
+loaded_tokenizer_path = "/saved_token_directory"  # Replace with the actual path
 tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
 
 st.title("FLAP Dashboard (DEMO)")
