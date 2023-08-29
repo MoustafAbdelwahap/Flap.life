@@ -8,14 +8,16 @@ print('started running the file')
 
 base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
 # Set the path to the model directory within the GitHub repository
-model_dir = os.path.join(base_path, "saved_model_directory")
+#model_dir = os.path.join(base_path, "Flap.life/saved_model_directory")
+path1="Flap.life/saved_model_directory"
 
-model = BertForSequenceClassification.from_pretrained(model_dir)
+model = BertForSequenceClassification.from_pretrained(path1)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-loaded_tokenizer_path = os.path.join(base_path, "saved_token_directory") 
-tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
+path2="Flap.life/saved_token_directory"
+#loaded_tokenizer_path = os.path.join(base_path, "Flap.life/saved_token_directory") 
+tokenizer = BertTokenizer.from_pretrained(path2)
 
 st.title("FLAP Dashboard (DEMO)")
 st.write("Enter your essay/personal statement, and we will evaluate it.")
