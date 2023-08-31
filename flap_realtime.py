@@ -1,11 +1,14 @@
-import torch
 import streamlit as st
-from transformers import BertForSequenceClassification, BertTokenizer
 import os
 import logging
+import requests
+from io import BytesIO
+import zipfile
+import torch
+from transformers import BertForSequenceClassification, BertTokenizer
+
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
-
 
 # Replace with your Dropbox shared link
 dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
@@ -23,24 +26,15 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 
+# Download and extract the model ZIP file
+download_and_extract_zip(dropbox_shared_link, temp_dir)
 
-
-
-base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
-# Set the path to the model directory within the GitHub repository
-model_dir = os.path.join(base_path, "/saved_model_directory")
-#path1="Flap.life/saved_model_directory"
-logging.debug("Model directory path: %s", model_dir)
-
-dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
-
+# Load pre-trained BERT model
 model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-#path2="Flap.life/saved_token_directory"
-loaded_tokenizer_path = os.path.join(base_path, "/saved_token_directory") 
-tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
+tokenizer = BertTokenizer.from_pretrained(temp_dir)
 
 st.title("FLAP Dashboard (DEMO)")
 st.write("Enter your essay/personal statement, and we will evaluate it.")
