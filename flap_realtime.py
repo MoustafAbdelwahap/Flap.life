@@ -13,7 +13,9 @@ model_dir = os.path.join(base_path, "/saved_model_directory")
 #path1="Flap.life/saved_model_directory"
 logging.debug("Model directory path: %s", model_dir)
 
-model = BertForSequenceClassification.from_pretrained(model_dir)
+dropbox_shared_link = "https://www.dropbox.com/scl/fo/lxwg1ja5e9dkhz8h6fhgc/h?rlkey=naisujy7h4wzi140d8w11cobe&dl=0"
+
+model = BertForSequenceClassification.from_pretrained(dropbox_shared_link)
 model.eval()
 
 # Load pre-trained BERT tokenizer
