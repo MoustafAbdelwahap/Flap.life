@@ -6,7 +6,6 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
 
-'''
 
 # Replace with your Dropbox shared link
 dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
@@ -24,7 +23,6 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 
-'''
 
 
 
@@ -36,7 +34,7 @@ logging.debug("Model directory path: %s", model_dir)
 
 dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
 
-model = BertForSequenceClassification.from_pretrained(dropbox_shared_link)
+model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
 
 # Load pre-trained BERT tokenizer
