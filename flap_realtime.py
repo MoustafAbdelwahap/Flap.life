@@ -7,6 +7,27 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
+
+# Replace with your Dropbox shared link
+dropbox_shared_link = "https://www.dropbox.com/scl/fo/lxwg1ja5e9dkhz8h6fhgc/h?rlkey=naisujy7h4wzi140d8w11cobe&dl=0"
+
+# Temporary directory to store the downloaded and extracted files
+temp_dir = "temp_folder"
+
+# Create a directory if it doesn't exist
+os.makedirs(temp_dir, exist_ok=True)
+
+# Function to download and extract the ZIP archive
+def download_and_extract_zip(url, output_dir):
+    response = requests.get(url)
+    with BytesIO(response.content) as zip_file:
+        with zipfile.ZipFile(zip_file, 'r') as zip_ref:
+            zip_ref.extractall(output_dir)
+
+
+
+
+
 base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
 # Set the path to the model directory within the GitHub repository
 model_dir = os.path.join(base_path, "/saved_model_directory")
