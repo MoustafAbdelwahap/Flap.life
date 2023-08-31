@@ -12,32 +12,42 @@ logging.basicConfig(level=logging.DEBUG)
 
 # Replace with your Dropbox shared link
 dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
-
 # Temporary directory to store the downloaded and extracted files
 temp_dir = "temp_folder"
-
 # Create a directory if it doesn't exist
 os.makedirs(temp_dir, exist_ok=True)
-
 # Function to download and extract the ZIP archive
 def download_and_extract_zip(url, output_dir):
     response = requests.get(url)
     with BytesIO(response.content) as zip_file:
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
-
 # Download and extract the model ZIP file
 download_and_extract_zip(dropbox_shared_link, temp_dir)
-
 # Load pre-trained BERT model
 model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
 
-# Load pre-trained BERT tokenizer
-#path2="Flap.life/saved_token_directory"
-base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
-loaded_tokenizer_path = os.path.join(base_path, "/saved_token_directory") 
-tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
+
+
+# Replace with your Dropbox shared link
+dropbox_shared_link_token = "https://www.dropbox.com/scl/fo/92skqiw88vqqqpslaw355/h?rlkey=edvilur6zx9nu6oany7v4ttmt&dl=1"
+# Temporary directory to store the downloaded and extracted files
+temp_dir_token = "temp_folder_token"
+# Create a directory if it doesn't exist
+os.makedirs(temp_dir_token, exist_ok=True)
+# Function to download and extract the ZIP archive
+def download_and_extract_zip(url, output_dir):
+    response = requests.get(url)
+    with BytesIO(response.content) as zip_file:
+        with zipfile.ZipFile(zip_file, 'r') as zip_ref:
+            zip_ref.extractall(output_dir)
+# Download and extract the model ZIP file
+download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
+# Load pre-trained BERT model
+tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
+
+
 
 st.title("FLAP Dashboard (DEMO)")
 st.write("Enter your essay/personal statement, and we will evaluate it.")
