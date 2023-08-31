@@ -34,7 +34,10 @@ model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
 
 # Load pre-trained BERT tokenizer
-tokenizer = BertTokenizer.from_pretrained(temp_dir)
+#path2="Flap.life/saved_token_directory"
+base_path = os.path.abspath(os.path.dirname(__file__))  # Assuming this script is in the root of your Streamlit app folder
+loaded_tokenizer_path = os.path.join(base_path, "/saved_token_directory") 
+tokenizer = BertTokenizer.from_pretrained(loaded_tokenizer_path)
 
 st.title("FLAP Dashboard (DEMO)")
 st.write("Enter your essay/personal statement, and we will evaluate it.")
