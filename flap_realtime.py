@@ -18,7 +18,7 @@ def download_and_extract_zip(url, output_dir):
             zip_ref.extractall(output_dir)
 
 # Replace with your Dropbox shared link
-dropbox_shared_link = "https://www.dropbox.com/scl/fo/lxwg1ja5e9dkhz8h6fhgc/h?rlkey=naisujy7h4wzi140d8w11cobe&dl=0"
+dropbox_shared_link = "https://www.dropbox.com/scl/fo/lxwg1ja5e9dkhz8h6fhgc/h?rlkey=naisujy7h4wzi140d8w11cobe&dl=1"
 
 st.title("Streamlit App with Downloaded Folder")
 
