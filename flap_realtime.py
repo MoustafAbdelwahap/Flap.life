@@ -23,8 +23,11 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 # Download and extract the model ZIP file
-download_and_extract_zip(dropbox_shared_link, temp_dir)
+if not os.path.exists(temp_dir) :
+    download_and_extract_zip(dropbox_shared_link, temp_dir)
 # Load pre-trained BERT model
+if not os.path.exists(model_path) or not os.path.exists(tokenizer_path):
+
 model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
 
@@ -43,7 +46,8 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 # Download and extract the model ZIP file
-download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
+if not os.path.exists(temp_dir_token) :
+    download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
 # Load pre-trained BERT model
 tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
 
