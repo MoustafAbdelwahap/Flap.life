@@ -26,7 +26,6 @@ def download_and_extract_zip(url, output_dir):
 if not os.path.exists(temp_dir) :
     download_and_extract_zip(dropbox_shared_link, temp_dir)
 # Load pre-trained BERT model
-if not os.path.exists(model_path) or not os.path.exists(tokenizer_path):
 
 model = BertForSequenceClassification.from_pretrained(temp_dir)
 model.eval()
