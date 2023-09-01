@@ -11,7 +11,7 @@ from transformers import BertForSequenceClassification, BertTokenizer
 logging.basicConfig(level=logging.DEBUG)
 
 # Replace with your Dropbox shared link
-dropbox_shared_link = "https://www.dropbox.com/scl/fo/45z0ag1jggdilqo317iqa/h?rlkey=hasn263w29yow9bxzpr0yrtzt&dl=1"
+dropbox_shared_link = "https://www.dropbox.com/scl/fo/qr8mndy0nozyvigw9orhj/h?rlkey=bwdsegi6f85cu45uaz5bv5n66&dl=1"
 # Temporary directory to store the downloaded and extracted files
 temp_dir = "temp_folder"
 # Create a directory if it doesn't exist
@@ -31,7 +31,7 @@ model.eval()
 
 
 # Replace with your Dropbox shared link
-dropbox_shared_link_token = "https://www.dropbox.com/scl/fo/92skqiw88vqqqpslaw355/h?rlkey=edvilur6zx9nu6oany7v4ttmt&dl=1"
+dropbox_shared_link_token = "https://www.dropbox.com/scl/fo/4tom4ydpwm0ob5isn5ivn/h?rlkey=k61d2k47c3w111vjjef8u7eef&dl=1"
 # Temporary directory to store the downloaded and extracted files
 temp_dir_token = "temp_folder_token"
 # Create a directory if it doesn't exist
