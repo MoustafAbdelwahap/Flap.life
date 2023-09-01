@@ -23,12 +23,11 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 # Download and extract the model ZIP file
-if not os.path.exists(temp_dir) :
-    download_and_extract_zip(dropbox_shared_link, temp_dir)
+download_and_extract_zip(dropbox_shared_link, temp_dir)
 # Load pre-trained BERT model
 
-model = BertForSequenceClassification.from_pretrained(temp_dir)
-model.eval()
+#model = BertForSequenceClassification.from_pretrained(temp_dir)
+#model.eval()
 
 
 
@@ -45,10 +44,9 @@ def download_and_extract_zip(url, output_dir):
         with zipfile.ZipFile(zip_file, 'r') as zip_ref:
             zip_ref.extractall(output_dir)
 # Download and extract the model ZIP file
-if not os.path.exists(temp_dir_token) :
-    download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
+download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
 # Load pre-trained BERT model
-tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
+#tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
 
 
 
@@ -59,6 +57,10 @@ st.write("Enter your essay/personal statement, and we will evaluate it.")
 input_text = st.text_area("Enter your text here:")
 
 if st.button("Evaluate"):
+    model = BertForSequenceClassification.from_pretrained(temp_dir)
+    model.eval()
+    tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
+
     if input_text:
         # Preprocess input
         tokens = tokenizer(input_text, padding="max_length", truncation=True, return_tensors="pt")
