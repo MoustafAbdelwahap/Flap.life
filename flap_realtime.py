@@ -57,6 +57,15 @@ st.write("Enter your essay/personal statement, and we will evaluate it.")
 input_text = st.text_area("Enter your text here:")
 
 if st.button("Evaluate"):
+
+
+    # Save input to a text file with timestamp as the name
+    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    input_filename = f"input/{timestamp}.txt"
+    with open(input_filename, "w") as file:
+        file.write(input_text)
+
+
     model = BertForSequenceClassification.from_pretrained(temp_dir)
     model.eval()
     tokenizer = BertTokenizer.from_pretrained(temp_dir_token)
@@ -87,3 +96,13 @@ if st.button("Evaluate"):
 
     else:
         st.write("Please enter some text.")
+
+# Email input
+user_email = st.text_input("Enter your email address and we will teach you how to write an essay that will get you accepted")
+
+if st.button("Submit"):
+    # Save email and timestamp to a CSV file
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    with open("user_emails.csv", mode="a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([timestamp, user_email])
