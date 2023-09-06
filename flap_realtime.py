@@ -13,7 +13,7 @@ import dropbox
 
 
 # Initialize Dropbox client
-dbx = dropbox.Dropbox("sl.BlgK3O-ZvRyI8-2FtZLdrfMHGfDiGiPyV4Y5N0fOEycYStRw9ezIHuXz04rOWP_uxVulcWZSomyXTZ4dGGEv3Kj3Zd-SMrsibB0xcyMKGXMqr1Os-AuyHdSdzDRFI3cTws2niYIAHhna") 
+dbx = dropbox.Dropbox("sl.BlgCuO13mDJT-sJiKeyDNVjTs50e0Ngxd8pbSYeR6RAZ21z7Mt20Cw024SKuhKglMd5H2zVCcMmFE1m2lLlkf41dDoTKt33maOjhnHo-ykhZbQIgNVQHTtbnDd1-Zyh_PgxtJPiGro-o") 
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
