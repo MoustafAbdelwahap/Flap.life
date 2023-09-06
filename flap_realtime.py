@@ -52,7 +52,7 @@ download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
 
 
 st.title("FLAP Dashboard (DEMO)")
-st.write("Enter your essay/personal statement, and we will evaluate it.")
+st.write("あなたのエッセイ/個人的な声明を入力してください。私たちがそれを評価します。」(Enter your essay/personal statement, and we will evaluate it for you)")
 
 # Input text
 input_text = st.text_area("Enter your text here:")
@@ -99,7 +99,8 @@ if st.button("Evaluate"):
         st.write("Please enter some text.")
 
 # Email input
-user_email = st.text_input("Enter your email address and we will teach you how to write an essay that will get you accepted")
+user_email = st.text_input(
+    "あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(Enter your email address and we will teach you how to write an essay that will get you accepted )")
 
 if st.button("Submit"):
     # Save email and timestamp to a CSV file
