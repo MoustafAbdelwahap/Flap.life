@@ -109,7 +109,8 @@ if st.button("Submit"):
     with open("user_emails.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([timestamp, user_email])
-    st.write("Thank you")
+    #st.write("Thank you")
+    st.markdown("<p style='color: red;'>Thank you</p>", unsafe_allow_html=True)
 
 # Get the current working directory where the Streamlit app is running
 current_directory = os.getcwd()
