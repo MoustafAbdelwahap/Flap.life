@@ -62,7 +62,7 @@ if st.button("Evaluate"):
 
     # Save input to a text file with timestamp as the name
     timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    input_filename = f"input/{timestamp}.txt"
+    input_filename = f"{timestamp}.txt"
     with open(input_filename, "w") as file:
         file.write(input_text)
 
