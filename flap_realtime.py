@@ -100,32 +100,13 @@ if st.button("Evaluate"):
     else:
         st.write("Please enter some text.")
 
+st.write("")
+st.write("")
+
 # Email input
 user_email = st.text_input(
     "あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(Enter your email address and we will teach you how to write an essay that will get you accepted )")
-
 if st.button("Submit"):
-    # Save email and timestamp to a CSV file
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    with open("user_emails.csv", mode="a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([timestamp, user_email])
-    st.write("Thank you")
-
-
-# Get the current working directory where the Streamlit app is running
-current_directory = os.getcwd()
-st.title("Download Files")
-# Create a zip archive of the current working directory
-shutil.make_archive("current_directory", "zip", current_directory)
-# Add a download button for the zip archive
-if st.button("Download Current Directory"):
-    st.download_button(
-        label="Click to Download Current Directory",
-        data=open("current_directory.zip", "rb").read(),
-        key="current_directory_download",
-        file_name="current_directory.zip",
-        mime="application/zip",
-    )
+    st.experimental_set_query_params(redirect='http://googel.com')
 
           
