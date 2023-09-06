@@ -4,5 +4,4 @@ streamlit
 accelerate
 scikit-learn
 datetime
-csv
 shutil
