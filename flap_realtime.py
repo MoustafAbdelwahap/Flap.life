@@ -111,11 +111,7 @@ st.write("")
 st.write("")
 
 # Email input
-user_email = st.text_input(
-    "あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(Enter your email address and we will teach you how to write an essay that will get you accepted )")
-if st.button("Submit"):
-    if user_url:
-        st.markdown(f"Thank you! Here is your [custom essay advice link](https://www.google.co.jp/) where you can access personalized essay writing tips based on your profile.")
+st.markdown(f"あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(https://www.google.co.jp/) Enter your email address and we will teach you how to write an essay that will get you accepted")
 
 
           
