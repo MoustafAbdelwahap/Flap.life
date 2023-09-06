@@ -13,7 +13,7 @@ import dropbox
 
 
 # Initialize Dropbox client
-dbx = dropbox.Dropbox("sl.BljShs2JcqPhZVVBmdcn7EnZPZSvpiNMU2uNnzEfN_mZrBOMhs47KTn6oQV1-2Ud9sfAng-QBamcwwi6o7KAofO5ZQKNSQ2j1CsDktWtbMyUTHmMDcJqdbw9qtQe93KkWGSa2H4QLoFEuUv4UUumL1E") 
+#dbx = dropbox.Dropbox("sl.BljShs2JcqPhZVVBmdcn7EnZPZSvpiNMU2uNnzEfN_mZrBOMhs47KTn6oQV1-2Ud9sfAng-QBamcwwi6o7KAofO5ZQKNSQ2j1CsDktWtbMyUTHmMDcJqdbw9qtQe93KkWGSa2H4QLoFEuUv4UUumL1E") 
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -109,9 +109,11 @@ if st.button("Evaluate"):
 
 st.write("")
 st.write("")
+st.write("")
+st.write("")
 
 # Email input
-st.markdown(f"あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(https://www.google.co.jp/) Enter your email address and we will teach you how to write an essay that will get you accepted")
-
+st.write("Enter your email address and we will teach you how to write an essay that will get you accepted")
+st.markdown(f"ありがとう！ こちらがあなたの[カスタムエッセイアドバイスリンク](https://udq731cqqnt.typeform.com/to/WgMh7zAj)で、あなたのプロフィールに基づいてパーソナライズされたエッセイ執筆のヒントにアクセスできます。")
 
           
