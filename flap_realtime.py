@@ -8,6 +8,7 @@ import torch
 from transformers import BertForSequenceClassification, BertTokenizer
 from datetime import datetime
 import csv
+import shutil
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -109,20 +110,22 @@ if st.button("Submit"):
     with open("user_emails.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([timestamp, user_email])
-    #st.write("Thank you")
-    st.markdown("<p style='color: red;'>Thank you</p>", unsafe_allow_html=True)
+    st.write("Thank you")
+
 
 # Get the current working directory where the Streamlit app is running
 current_directory = os.getcwd()
-
-
 st.title("Download Files")
-if st.button("Download"):
-  # Get a list of all files in the current directory
-  file_list = os.listdir(current_directory)
+# Create a zip archive of the current working directory
+shutil.make_archive("current_directory", "zip", current_directory)
+# Add a download button for the zip archive
+if st.button("Download Current Directory"):
+    st.download_button(
+        label="Click to Download Current Directory",
+        data=open("current_directory.zip", "rb").read(),
+        key="current_directory_download",
+        file_name="current_directory.zip",
+        mime="application/zip",
+    )
 
-  # Create a section to download files
-  for file in file_list:
-      file_path = os.path.join(current_directory, file)
-      with open(file_path, "rb") as file_content:
-          st.download_button(label=f"Download {file}", data=file_content, key=file)
+          
