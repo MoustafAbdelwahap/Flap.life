@@ -114,16 +114,8 @@ st.write("")
 user_email = st.text_input(
     "あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(Enter your email address and we will teach you how to write an essay that will get you accepted )")
 if st.button("Submit"):
-    # Save email and timestamp to a CSV file
-    timestamps = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    input_filename_csv = f"{timestamps}.csv"
-    with open(input_filename_csv, mode="a", newline="") as file:
-        writer = csv.writer(file)
-        writer.writerow([timestamp, user_email])
-    # Upload the CSV file to Dropbox
-    with open(input_filename_csv, "rb") as file:
-        dbx.files_upload(file.read(), f"/{input_filename_csv}")
-        
-    st.write("Thank you")
+    if user_url:
+        st.markdown(f"Thank you! Here is your [custom essay advice link](https://www.google.co.jp/) where you can access personalized essay writing tips based on your profile.")
+
 
           
