@@ -7,6 +7,7 @@ import zipfile
 import torch
 from transformers import BertForSequenceClassification, BertTokenizer
 from datetime import datetime
+import csv
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
