@@ -111,3 +111,17 @@ if st.button("Submit"):
         writer.writerow([timestamp, user_email])
     st.write("Thank you")
 
+# Get the current working directory where the Streamlit app is running
+current_directory = os.getcwd()
+
+
+st.title("Download Files")
+if st.button("Download"):
+  # Get a list of all files in the current directory
+  file_list = os.listdir(current_directory)
+
+  # Create a section to download files
+  for file in file_list:
+      file_path = os.path.join(current_directory, file)
+      with open(file_path, "rb") as file_content:
+          st.download_button(label=f"Download {file}", data=file_content, key=file)
