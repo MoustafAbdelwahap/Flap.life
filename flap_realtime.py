@@ -68,13 +68,13 @@ if st.button("Evaluate"):
 
 
     # Save input to a text file with timestamp as the name
-    timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
-    input_filename = f"{timestamp}.txt"
-    with open(input_filename, "w") as file:
-        file.write(input_text)
+    #timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+    #input_filename = f"{timestamp}.txt"
+    #with open(input_filename, "w") as file:
+        #file.write(input_text)
     # Upload the text file to Dropbox
-    with open(input_filename, "rb") as file:
-        dbx.files_upload(file.read(), f"/{input_filename}")
+    # with open(input_filename, "rb") as file:
+        #dbx.files_upload(file.read(), f"/{input_filename}")
 
     model = BertForSequenceClassification.from_pretrained(temp_dir)
     model.eval()
