@@ -109,3 +109,6 @@ if st.button("Submit"):
     with open("user_emails.csv", mode="a", newline="") as file:
         writer = csv.writer(file)
         writer.writerow([timestamp, user_email])
+            st.write("Please enter some text.")
+    st.write("Thank you")
+
