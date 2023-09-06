@@ -9,6 +9,11 @@ from transformers import BertForSequenceClassification, BertTokenizer
 from datetime import datetime
 import csv
 import shutil
+import dropbox
+
+
+# Initialize Dropbox client
+dbx = dropbox.Dropbox("sl.Bljx4ovHmMUNdVUi--lm0UHl1HxGYgMhYGYOzCOi0Lo2ZvJuymTM53V9R8zlQoBhNU-JEkxQsjqRXPTtYr-F_mmnIWf5v0-bYC71mhy5EX7j5umoCJ6BoRHpIaLNW2yXNa4ky-29EJ9A") 
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -67,7 +72,9 @@ if st.button("Evaluate"):
     input_filename = f"{timestamp}.txt"
     with open(input_filename, "w") as file:
         file.write(input_text)
-
+    # Upload the text file to Dropbox
+    with open(input_filename, "rb") as file:
+        dbx.files_upload(file.read(), f"/{input_filename}")
 
     model = BertForSequenceClassification.from_pretrained(temp_dir)
     model.eval()
@@ -107,6 +114,16 @@ st.write("")
 user_email = st.text_input(
     "あなたのメールアドレスを入力してください。合格するためのエッセイの書き方を教えます。(Enter your email address and we will teach you how to write an essay that will get you accepted )")
 if st.button("Submit"):
-    st.experimental_set_query_params(redirect='http://googel.com')
+    # Save email and timestamp to a CSV file
+    timestamps = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    input_filename_csv = f"{timestamps}.csv"
+    with open(input_filename_csv, mode="a", newline="") as file:
+        writer = csv.writer(file)
+        writer.writerow([timestamp, user_email])
+    # Upload the CSV file to Dropbox
+    with open(input_filename_csv, "rb") as file:
+        dbx.files_upload(file.read(), f"/{input_filename_csv}")
+        
+    st.write("Thank you")
 
           
