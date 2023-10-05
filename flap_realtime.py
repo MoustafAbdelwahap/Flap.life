@@ -59,7 +59,8 @@ download_and_extract_zip(dropbox_shared_link_token, temp_dir_token)
 
 
 st.title("FLAP Dashboard (DEMO)")
-st.write("あなたのエッセイをこちらに入力してください。合格可能性を診断します。(Enter your essay/personal statement, and we will evaluate it for you)")
+#あなたのエッセイをこちらに入力してください。合格可能性を診断します。
+st.write("(Enter your essay/personal statement, and we will evaluate it for you)")
 
 # Input text
 input_text = st.text_area("Enter your text here:")
@@ -114,5 +115,5 @@ st.write("")
 
 # Email input
 st.write("Enter your email address and we will teach you how to write an essay that will get you accepted")
-st.markdown(f"メールアドレスを [こちらのフォーム](https://udq731cqqnt.typeform.com/to/WgMh7zAj) に入力してください。海外進学経験者がエッセイをよりブラッシュアップし、合格に近づけるためのアドバイスを提供します！")
+#st.markdown(f"メールアドレスを [こちらのフォーム](https://udq731cqqnt.typeform.com/to/WgMh7zAj) に入力してください。海外進学経験者がエッセイをよりブラッシュアップし、合格に近づけるためのアドバイスを提供します！")
           
