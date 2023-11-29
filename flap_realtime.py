@@ -114,6 +114,6 @@ st.write("")
 st.write("")
 
 # Email input
-st.write("Enter your email address and we will teach you how to write an essay that will get you accepted")
+#st.write("Enter your email address and we will teach you how to write an essay that will get you accepted")
 #st.markdown(f"メールアドレスを [こちらのフォーム](https://udq731cqqnt.typeform.com/to/WgMh7zAj) に入力してください。海外進学経験者がエッセイをよりブラッシュアップし、合格に近づけるためのアドバイスを提供します！")
           
