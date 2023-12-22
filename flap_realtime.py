@@ -40,7 +40,7 @@ download_and_extract_zip(dropbox_shared_link, temp_dir)
 
 
 # Replace with your Dropbox shared link
-dropbox_shared_link_token = "https://www.dropbox.com/scl/fi/vnvae5vxeqaehbmxzjrr6/saved_model_directory.zip?rlkey=lb661o1bo2r1likto25471dck&dl=1" #'https://www.dropbox.com/scl/fi/8c56qxrirhxttvuaoijq9/saved_token_directory.zip?rlkey=g6yusbcxazme6qz6c25esmxox&dl=1'
+dropbox_shared_link_token = 'https://www.dropbox.com/scl/fi/8c56qxrirhxttvuaoijq9/saved_token_directory.zip?rlkey=g6yusbcxazme6qz6c25esmxox&dl=1'
 # Temporary directory to store the downloaded and extracted files
 temp_dir_token = "temp_folder_token"
 # Create a directory if it doesn't exist
